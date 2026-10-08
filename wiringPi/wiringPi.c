@@ -1688,7 +1688,7 @@ struct wiringPiNodeStruct *wiringPiNewNode (int pinBase, int numPins)
     if (wiringPiFindNode (pin) != NULL)
       (void)wiringPiFailure (WPI_FATAL, "wiringPiNewNode: Pin %d overlaps with existing definition\n", pin) ;
 
-  node = (struct wiringPiNodeStruct *)calloc (sizeof (struct wiringPiNodeStruct), 1) ;	// calloc zeros
+  node = (struct wiringPiNodeStruct *)calloc (1, sizeof (struct wiringPiNodeStruct)) ;	// calloc zeros
   if (node == NULL)
     (void)wiringPiFailure (WPI_FATAL, "wiringPiNewNode: Unable to allocate memory: %s\n", strerror (errno)) ;
 
